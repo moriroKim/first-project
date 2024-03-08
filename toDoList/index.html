@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/87e43459c4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+    <div class="gnb">    
+        <div class="navBar">
+            <h2 class="logo">MoriroCode.</h2>
+            <div class="search">
+                <input type="text" id="input-box-search" placeholder="Search">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="menu">
+                <button><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <div class="container">
+        <div class="todo-app">
+            <h2>To-Do 리스트 <img src="/toDoList/images/icon.png"></h2>
+            <div class="row">
+                <input type="text" id="input-box" placeholder="오늘 할 일을 입력해주세요.">
+                <button class="addBtn" onclick="addTask()">추가</button>
+            </div>
+            <ul id="list-container">
+            </ul>
+            <div class="delete-btn-wrap">
+                <button class="deleteBtn" onclick="selectDelete()">선택 삭제</button>
+                <button class="deleteBtn" onclick="deleteAll()">전체 삭제</button>
+            </div>
+        </div>
+    </div>
+<script src="script.js"></script>
+
+</body>
+</html>
