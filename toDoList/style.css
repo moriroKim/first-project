@@ -119,7 +119,7 @@ header .gnb .navBar .menu i {
     margin-left: 10px;
 }
 
-.row {
+.input-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -189,15 +189,19 @@ input {
 
 ul li {
     list-style: none;
-    font-size: 17px;
-    text-align: left;
+    justify-content: left;
     padding: 12px 8px 12px 50px;
-    user-select: none; /* 유저가 폰트를 드래그 할때 선택되는 색깔 설정 */
-    cursor: pointer;
     position: relative;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     margin-bottom: 5px;
     transition: height 0.3s ease;
+    cursor: pointer;
+}
+
+ul li span {
+    font-size: 17px;
+    user-select: none; /* 유저가 폰트를 드래그 할때 선택되는 색깔 설정 */
+    cursor: pointer;
 }
 
 ul li::before {
@@ -222,19 +226,21 @@ ul li.checked::before {
     background-image: url(/toDoList/images/checked.png);
 }
 
-ul li span {
+ul li button {
     position: absolute;
     right: 0;
     top: 9px;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     font-size: 22px;
     text-align: center;
-    line-height: 40px;
+    line-height: 32px;
+    border: none;
     border-radius: 10px;
+    cursor: pointer;
     transition: all 0.3s ease;
 }
 
-ul li span:hover {
+ul li button:hover {
     background: #e6e6e6;
 }
