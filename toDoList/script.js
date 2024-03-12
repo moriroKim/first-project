@@ -34,10 +34,6 @@ const addItem = (todo) => { // 2-2 ~ 2-3
         li.id = todo.id;
         }
 };                                            
-                                        
-
-//2-2. inputBox.value인자값이 text로 대체되고 (text = inputBox.value)
-//2-3. text가 빈문자열이 아니면 li를 생성하고 ul의 자식으로 붙이는 코드를 실행.
 
 const handler = (event) => {
     event.preventDefault(); // 2-0
@@ -64,44 +60,48 @@ const init = () => {
     userTodos.forEach((todo) => {
         addItem(todo);
 
+    if (todo.checked) {
+        const listItem = document.getElementById(todo.id);
+        listItem.classList.add('checked');
+    }
+
     });
 
     todos = userTodos;
 
     }
-    applyCheckedState();
-    saveCheckedState();
 };
 
-// 체크박스 상태 저장
-const saveCheckedState = () => {
-    const checkedItems = Array.from(listContainer.querySelectorAll(".checked")).map(item => item.id);
-    localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
+// 선택된 todo의 checked 상태를 업데이트하는 함수
+const updateTodoCheckedState = (todoId, isChecked) => {
+    // 해당 todo 객체 찾기
+    const todo = todos.find((todo) => todo.id === todoId);
+
+    // checked 상태 업데이트
+    todo.checked = isChecked;
+
+    // 변경된 상태 저장
+    save();
 };
 
-// 페이지 로드될 때 저장된 체크박스 상태 불러오기
-const applyCheckedState = () => {
-    const checkedItems = JSON.parse(localStorage.getItem('checkedItems')) || [];
-    checkedItems.forEach(itemId => {
-        const item = document.getElementById(itemId);
-        if(item) {
-            item.classList.add("checked");
-        }
-    });
-};
-
-
-// 체크박스 버튼 이벤트 추가
+// listContainer에 클릭 이벤트 추가
 listContainer.addEventListener("click", (event) => {
-    if(event.target.tagName === ("LI")){ /* 만약 클릭된 타겟의 태그네임이 LI(리스트)일 경우 */
-        event.target.classList.toggle("checked");
-    }
-    else if(e.target.tagName === "button") {
-        delItem();
-        save();
+    if (event.target.tagName === "LI") {
+        // 클릭된 li 요소
+        const clickedListItem = event.target;
+        
+        // 클래스 "checked"를 토글
+        clickedListItem.classList.toggle("checked");
+
+        // 클릭된 li 요소의 id
+        const clickedTodoId = parseInt(clickedListItem.id);
+        
+        // 클릭된 li 요소가 클래스 "checked"를 가지고 있는지 확인하여 checked 상태 업데이트
+        const isChecked = clickedListItem.classList.contains("checked");
+        updateTodoCheckedState(clickedTodoId, isChecked);
     }
 }, false);
-
+        
 // 선택 삭제 기능
 function selectDelete() {
     let list = listContainer.querySelectorAll(".checked");
