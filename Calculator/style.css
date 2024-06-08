@@ -14,7 +14,7 @@ html{
 }
 
 body {
-    background-image: url('./bg.jpg');
+    background-image: url('./Calculator/bg.jpg');
     background-size: cover;
     height: inherit;
 
