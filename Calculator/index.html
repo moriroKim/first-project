@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator | MORIROKIM</title>
+</head>
+<body>
+    
+    <div class="wrapper">
+        <div class="top">
+            <h1 id="time">00:00:00</h1>
+            <div id="dynamic-island">
+                <div id="ellipse"></div>
+                <div id="camera-lens">
+                    <div id="inside-lens">
+                        <div id="lens-reflection"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="icons">
+                <span class="signal"><i class="fa-solid fa-signal"></i></span>
+                <span class="wifi"><i class="fa-solid fa-wifi"></i></span>
+                <span class="battery"><i class="fa-solid fa-battery-full"></i></span>
+            </div>
+        </div>
+
+        <input type ="text" class="display" id="display"/>
+
+        <section class="calc-buttons">
+            <div class="calc-button-row">
+                <button class="calc-button operator" data-value="AC">
+                    AC
+                </button>
+                <button class="calc-button cancel operator" data-value="DEL">
+                    <i id="cancel-icon" class="fa-solid fa-delete-left"></i>
+                </button>
+                <button class="calc-button operator" data-value="%">
+                    %
+                </button>
+                <button class="calc-button operator" data-value="/">
+                    ÷
+                </button>
+            </div>
+
+            <div class="calc-button-row">
+                <button class="calc-button" data-value="7">
+                    7
+                </button>
+                <button class="calc-button" data-value="8">
+                    8
+                </button>
+                <button class="calc-button" data-value="9">
+                    9
+                </button>
+                <button class="calc-button operator" data-value="*">
+                    ×
+                </button>
+            </div>
+
+            <div class="calc-button-row">
+                <button class="calc-button" data-value="4">
+                    4
+                </button>
+                <button class="calc-button" data-value="5">
+                    5
+                </button>
+                <button class="calc-button" data-value="6">
+                    6
+                </button>
+                <button class="calc-button operator" data-value="-">
+                    －
+                </button>
+            </div>
+
+            <div class="calc-button-row">
+                <button class="calc-button" data-value="1">
+                    1
+                </button>
+                <button class="calc-button" data-value="2">
+                    2
+                </button>
+                <button class="calc-button" data-value="3">
+                    3
+                </button>
+                <button class="calc-button operator" data-value="+">
+                    ＋
+                </button>
+            </div>
+
+            <div class="calc-button-row">
+                <button class="calc-button" data-value="0">
+                    0
+                </button>
+                <button class="calc-button" data-value="00">
+                    00
+                </button>
+                <button class="calc-button" data-value=".">
+                    .
+                </button>
+                <button class="calc-button operator" data-value="=">
+                    ＝
+                </button>
+            </div>
+
+        </section>
+
+        
+        <div class="footer">
+            <section class="slide">
+                <span class="creater-name">@MORIROKIM CALCULATOR</span>
+                <div id="slide-bar"></div>
+            </section>
+        </div>
+
+    </div>
+
+
+    <script src="app.js"></script>
+    <script src="ani.js"></script>
+    <script src="https://kit.fontawesome.com/3eefde051d.js" crossorigin="anonymous"></script>
+</body>
+</html>
